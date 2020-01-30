@@ -15,7 +15,7 @@ It is intended that students will use the Eclipse IDE to import any code within 
   * Confirm the following values and select "Next"
     * URL: https://github.com/fmadrid/CSCI-230-Data-Structures-and-Algorithms
     * Host: github.com
-    * Repository Path: /fmadrid/CSCI-230-Lecture-Notes
+    * Repository Path: /fmadrid/CSCI-230-Data-Structures-and-Algorithms
 * Branch Selection
   * Select the only branch "master" from the list and select "Next"
 * Local Destination
