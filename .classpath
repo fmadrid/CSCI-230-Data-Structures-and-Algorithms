@@ -6,6 +6,6 @@
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/frank/git/CSCI-230-Data-Structures-and-Algorithms/libraries/sourcecode.jar"/>
+	<classpathentry kind="lib" path="libraries/sourcecode.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
