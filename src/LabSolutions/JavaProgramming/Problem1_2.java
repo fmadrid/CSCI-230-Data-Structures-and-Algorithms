@@ -5,6 +5,17 @@ import java.util.Random;
 
 public class Problem1_2 {
 
+	// Example: LRRRLRRLRRRL
+	//				Check all substrings
+	//				L, LR, LRR, LRRR, LRRRL, LRRRLR, LRRRLRR, LRRRLRRL, LRRRLRRLR, LRRRLRRLRR, LRRRLRRLRRR, LRRRLRRLRRRL
+	//              R, RR, RRR, RRRL, ........, RRLRRLRRRL
+	//
+	//
+	//
+	//
+	//  n^3 total characters
+	
+	
 	// Checks all substrings and counts the number of L's and R's, if equal save the substring and
 	// return this list when finished with some subtle optimizations
 	private static ArrayList<String> bruteForceSolution(String str) {
@@ -25,7 +36,7 @@ public class Problem1_2 {
 				int LCount = 0;
 				int RCount = 0;
 				
-				for(char c : str.substring(i,j).toCharArray()) {
+				for(char c : str.substring(i,j+1).toCharArray()) {
 					if(c == 'L')      LCount++;
 					else if(c == 'R') RCount++;
 				}
@@ -50,7 +61,7 @@ public class Problem1_2 {
 	
 	public static void main(String[] args) {
 		
-		String str = generateString();
+		String str = generateString();	// Randomly generates a string of L's and R's (20 characters in length)
 		
 		System.out.println("Sample String: " + str);
 		System.out.print("BruteForce Solution: ");
