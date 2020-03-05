@@ -1,3 +1,4 @@
+import Std.StdDraw;
 
 public class SDLExample {
     public static void main(String[] args) {
