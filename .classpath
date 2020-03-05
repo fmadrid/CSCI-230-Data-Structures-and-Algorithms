@@ -7,5 +7,6 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="lib" path="libraries/sourcecode.jar"/>
+	<classpathentry kind="lib" path="libraries/stdlib.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
