@@ -1,6 +1,6 @@
 package Project.Guitar;
 
-import Std.StdDraw;
+import stdlib.StdDraw;
 
 public class SDLExample {
     public static void main(String[] args) {
