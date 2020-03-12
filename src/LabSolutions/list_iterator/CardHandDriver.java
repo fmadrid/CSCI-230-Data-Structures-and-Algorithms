@@ -2,9 +2,11 @@ package LabSolutions.list_iterator;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Iterator;
 
 import LabSolutions.list_iterator.Card.Rank;
 import LabSolutions.list_iterator.Card.Suit;
+import net.datastructures.Position;
 
 /**
  * A class that can be used to test your <i>CardHand</i> class. Two useful functions
@@ -48,7 +50,31 @@ public final class CardHandDriver {
 		
 		initializeDeck();
 		Card[] cards = drawHand();
-		// TODO Test the remainder of the functions in class CardHand
+		CardHand hand = new CardHand(cards);
+		
+		System.out.println("Hand: " + hand.toString());
+		System.out.println("Playing Heart: " + hand.play(Card.Suit.HEART));
+		System.out.println("Hand: " + hand.toString());
+		
+		System.out.println("Playing rest of the hand beginning with clubs: ");
+		while(!hand.isEmpty()) System.out.println("\t" + hand.play(Card.Suit.CLUB));
+		
+		// Add a bunch of hearts and diamonds
+		hand.addCard(new Card(Card.Rank.ACE, Card.Suit.HEART));
+		hand.addCard(new Card(Card.Rank.TWO, Card.Suit.HEART));
+		hand.addCard(new Card(Card.Rank.THREE, Card.Suit.HEART));
+		hand.addCard(new Card(Card.Rank.FOUR, Card.Suit.DIAMOND));
+		hand.addCard(new Card(Card.Rank.FIVE, Card.Suit.DIAMOND));
+		
+		System.out.println("Hand: " + hand.toString());
+		
+		// Testing suit iterator
+		Iterator<Position<Card>> sIterator = hand.suitIterator(Card.Suit.HEART);
+		System.out.println("The iterator sees the following HEARTS: ");
+		while(sIterator.hasNext())
+			System.out.println("\t" + sIterator.next().getElement().toString());
+			
+		
 	}
 
 }
