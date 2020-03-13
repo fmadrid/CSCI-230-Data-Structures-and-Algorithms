@@ -16,23 +16,28 @@ public final class BinaryTreeOperations {
 	 * @param arr
 	 * @return
 	 */
-	public static LinkedBinaryTree<Integer> buildTree(ArrayList<Integer> arr) {
+	public static <E> LinkedBinaryTree<E> buildTree(ArrayList<E> arr) {
 		return buildsubtree(arr, 0);
 	}
 	
-	public static <Integer> LinkedBinaryTree<Integer> buildsubtree(ArrayList<Integer> arr, int idx) {
+	public static <E> LinkedBinaryTree<E> buildsubtree(ArrayList<E> arr, int idx) {
 		
 		if(idx >= arr.size()) return null;
-		LinkedBinaryTree<Integer> tree = new LinkedBinaryTree<Integer>();
-		tree.attach(tree.addRoot(arr.get(idx)), buildsubtree(arr, idx * 2 + 1),buildsubtree(arr, idx * 2 + 2)); 
+		LinkedBinaryTree<E> tree = new LinkedBinaryTree<E>();
+		LinkedBinaryTree<E> leftTree = buildsubtree(arr, idx*2+1);
+		LinkedBinaryTree<E> rightTree = buildsubtree(arr, idx*2+2);
+		
+		if(leftTree != null) tree.addLeft(leftTree.root())
+		
+		tree.attach(tree.addRoot(arr.get(idx)), (arr.get(idx*2+1) == null) ? null : buildsubtree(arr, idx * 2 + 1),buildsubtree(arr, idx * 2 + 2)); 
 		return tree;
 	}
 	
-	public static <Integer> void printTree(LinkedBinaryTree<Integer> tree) {
+	public static <E> void printTree(LinkedBinaryTree<E> tree) {
 		printsubtree(tree, tree.root(), 0);
 	}
 	
-	public static <Integer> void printsubtree(LinkedBinaryTree<Integer> tree, Position<Integer> p, int depth) {
+	public static <E> void printsubtree(LinkedBinaryTree<E> tree, Position<E> p, int depth) {
 		if(p == null) return;
 		for(int i = 1; i <= depth; ++i)
 			System.out.print("\t");
