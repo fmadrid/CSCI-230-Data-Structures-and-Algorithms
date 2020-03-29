@@ -4,8 +4,9 @@ import net.datastructures.ArrayStack;
 import net.datastructures.Deque;
 
 /**
- * class <b>StackDeque</b> is a solution to <i>Lab: StackDeque</i>
- * @author frank
+ * Class <b>StackDeque</b> is a solution to <b>Lab: StackDeque</b> which challenges students to use a pair of array-based Stacks to
+ * implement a Deque.
+ * @author Frank Madrid
  *
  * @param <E>
  */

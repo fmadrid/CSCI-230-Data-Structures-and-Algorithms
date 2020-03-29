@@ -1,0 +1,81 @@
+<hr style="border: 0; border-top: 5px double #4d4d4d;" />
+<div>
+<h3>Introduction</h3>
+<p>The <strong>stack </strong>is an Abstract Data Structure (ADT) which uses in the <strong>First-In-Last-Out (FILO)</strong> principle. This particular principle is particularly useful when we want to reverse the ordering of elements in a collection in <img class="equation_image" title="\mathcal{O}(n)" src="https://sbccd.instructure.com/equation_images/%255Cmathcal%257BO%257D(n)" alt="LaTeX: \mathcal{O}(n)" data-equation-content="\mathcal{O}(n)" /> time and memory, and finding paired delimiters in a text string. The stack ADT also sees application in solving mazes when using <strong>depth-first search (DFS)</strong>.</p>
+<p>In this lab, students will implement the <strong>deque (double-ended queue) ADT</strong> using two stacks as the only instance variables. Specifically, given the <span style="font-family: Courier New;">Deque</span> and <span style="font-family: Courier New;">Stack</span> Java interfaces, as well as the array implementation of the <span style="font-family: Courier New;">Stack</span> interface, <span style="font-family: Courier New;">ArrayStack</span>. Complete the following problems.</p>
+</div>
+<div class="enhanceable_content tabs">
+<ul>
+<li><a href="#fragment-ClassImplementation">Problem 1 - Class Implementation</a></li>
+<li><a href="#fragment-Driver">Problem 2 - Driver</a></li>
+<li><a href="#fragment-Big-Oh">Problem 3 - Big-Oh Analysis</a></li>
+</ul>
+<div id="fragment-ClassImplementation" style="overflow: auto; text-align: justify;">
+<p>Write a class <span style="font-family: Courier New;">StackDeque</span> that implements the <span style="font-family: Courier New;">Deque</span> interface. The only two instance variables in this class should be <span style="font-family: Courier New;">frontStack</span> and <span style="font-family: Courier New;">endStack</span>, which are of the <span style="font-family: Courier New;">ArrayStack</span> reference type. In the <span style="font-family: Courier New;">StackDeque</span> class, implement each method of the <span style="font-family: Courier New;">Deque</span> interface.</p>
+<p><strong>Hint:</strong> If you hover over the <span style="font-family: Courier New;">StackDeque</span>&nbsp;class declaration in your implementation, you can instruct Eclipse to automatically create function stubs of each of the methods in the <span style="font-family: Courier New;">Deque</span> interface.</p>
+<ul>
+<li><span style="font-family: Courier New;">int size()</span> - Returns the number of elements in the deque.</li>
+<li><span style="font-family: Courier New;">boolean isEmpty()</span> - Test whether the deque is empty.</li>
+<li><span style="font-family: Courier New;">E first()</span> - Returns, but does not remove, the first element of the deque (null if empty).</li>
+<li><span style="font-family: Courier New;">E last()</span> - Returns, but does not remove, the last element of the deque (null if empty).</li>
+<li><span style="font-family: Courier New;">void addFirst()</span> - Inserts an element at the front of the deque.</li>
+<li><span style="font-family: Courier New;">void addLast()</span> - Inserts an element at the back of the deque.</li>
+<li><span style="font-family: Courier New;">E removeFirst()</span> - Removes and returns the first element of the deque (null if empty).</li>
+<li><span style="font-family: Courier New;">E removeLast()</span> - Removes and returns the last element of the deque.</li>
+</ul>
+<p><strong>Hint</strong>: The <span style="font-family: Courier New;">frontStack</span> instance variable represents the front end of the deque and <span style="font-family: Courier New;">endStack</span> represent the back end of the deque. EAch time an element is added to the front of the deque, it is pushed onto <span style="font-family: Courier New;">frontStack</span>. Each time an element is added to the end of the deque, it is pushed onto <span style="font-family: Courier New;">endStack</span>. To implement <span style="font-family: Courier New;">removeFirst</span> correctly, think about where the first element, considering both cases when the <span style="font-family: Courier New;">frontStack</span> is and is not empty. Once you understand how to implement <span style="font-family: Courier New;">removeFirst</span>, the logic for <span style="font-family: Courier New;">removeLast</span> should be apparent.</p>
+<div style="background: #f0f0f0; overflow: auto; width: auto; border: solid gray; border-width: .1em .1em .1em .8em; padding: .2em .6em;">
+<table>
+<tbody>
+<tr>
+<td style="width: 40.8px;">
+<pre style="margin: 0; line-height: 125%; background: #f0f0f0; border: 0;"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15</pre>
+</td>
+<td style="width: 557.6px;">
+<pre style="background: #f0f0f0; border: 0; margin: 0; line-height: 125%;"><span style="color: #007020; font-weight: bold;">import</span> <span style="color: #0e84b5; font-weight: bold;">net.datastructures.ArrayStack</span><span style="color: #666666;">;</span>
+<span style="color: #007020; font-weight: bold;">import</span> <span style="color: #0e84b5; font-weight: bold;">net.datastructures.Deque</span><span style="color: #666666;">;</span>
+
+<span style="color: #007020; font-weight: bold;">public</span> <span style="color: #007020; font-weight: bold;">class</span> <span style="color: #0e84b5; font-weight: bold;">StackDeque</span><span style="color: #666666;">&lt;</span>E<span style="color: #666666;">&gt;</span> <span style="color: #007020; font-weight: bold;">implements</span> Deque<span style="color: #666666;">&lt;</span>E<span style="color: #666666;">&gt;</span> <span style="color: #666666;">{</span>
+	
+	<span style="color: #60a0b0; font-style: italic;">// Declare two private member variables frontStack and endStack with</span>
+	<span style="color: #60a0b0; font-style: italic;">// reference type ArrayStack</span>
+	
+	<span style="color: #60a0b0; font-style: italic;">// Utilize these two member variables and their respective methods to</span>
+	<span style="color: #60a0b0; font-style: italic;">// implement each function in the Deque interface</span>
+	
+	<span style="color: #007020; font-weight: bold;">public</span> <span style="color: #007020; font-weight: bold;">static</span> <span style="color: #902000;">void</span> <span style="color: #06287e;">main</span><span style="color: #666666;">(</span>String<span style="color: #666666;">[]</span> args<span style="color: #666666;">)</span> <span style="color: #666666;">{</span>
+		<span style="color: #60a0b0; font-style: italic;">// Write your driver here as a part of problem 2</span>
+	<span style="color: #666666;">}</span>
+<span style="color: #666666;">}</span>
+</pre>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="fragment-Driver" style="overflow: auto; text-align: justify;">
+<p>Write a simple driver program to test each method of your <span style="font-family: Courier New;">StackDeque</span>. Your driver <em>at the very least</em> should invoke each method of the <span style="font-family: Courier New;">StackDeque</span> class, should trigger any exceptions, and use incorporate various data types and sizes in an effort to "break" your implementation.</p>
+</div>
+<div id="fragment-Big-Oh" style="overflow: auto; text-align: justify;">
+<p>Analyze the running time of each method in the <span style="font-family: Courier New;">StackDeque</span> class and character each one using Big-Oh notation (both memory and time complexity).</p>
+</div>
+</div>
+<hr style="border: 0; border-top: 5px double #4d4d4d;" />
+<h3>Submission Guidelines</h3>
+<p>To receive credit for this assignment, show your source code to your instructor before the end of class.</p>
+<hr style="border: 0; border-top: 5px double #4d4d4d;" />
