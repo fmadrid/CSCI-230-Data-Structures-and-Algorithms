@@ -1,10 +1,11 @@
 package LabPriorityQueue;
 
-public class MaxPriorityQueue {
+public class MaxPriorityQueue<K,V> extends UnsortedPriorityQueue<K,V> {
 
 	/*
 	 * Finish me
 	 */
+	
 	public static void main(String[] args) {
 		
 		MinPriorityQueue<Integer,String> pq = new MinPriorityQueue<>();
