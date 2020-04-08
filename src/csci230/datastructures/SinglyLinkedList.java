@@ -30,6 +30,11 @@ package csci230.datastructures;
  * @author Michael H. Goldwasser
  */
 public class SinglyLinkedList<E> implements Cloneable {
+	
+	public void concatenate(SinglyLinkedList<E> list) {
+		
+	}
+	
   //---------------- nested Node class ----------------
   /**
    * Node of a singly linked list, which stores a reference to its

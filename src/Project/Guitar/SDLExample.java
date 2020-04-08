@@ -10,8 +10,5 @@ public class SDLExample {
         StdDraw.point(0.5, 0.5);
         StdDraw.setPenColor(StdDraw.MAGENTA);
         StdDraw.line(0.2, 0.2, 0.8, 0.2);
-        while(true) {
-        	StdAudio.play(0.5);
-        }
     }
 }

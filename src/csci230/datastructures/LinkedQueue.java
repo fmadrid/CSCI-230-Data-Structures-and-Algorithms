@@ -33,6 +33,10 @@ package csci230.datastructures;
  */
 public class LinkedQueue<E> implements Queue<E> {
 
+	public void concatenate(LinkedQueue<E> q2) {
+		list.concatenate(q2.list);
+	}
+	
   /** The primary storage for elements of the queue */
   private SinglyLinkedList<E> list = new SinglyLinkedList<>();   // an empty  list
 

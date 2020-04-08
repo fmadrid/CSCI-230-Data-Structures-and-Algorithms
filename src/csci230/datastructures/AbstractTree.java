@@ -54,7 +54,7 @@ public abstract class AbstractTree<E> implements Tree<E> {
   @Override
   public int numChildren(Position<E> p) {
     int count=0;
-    for (Position child : children(p)) count++;
+    for (Position<E> child : children(p)) count++;
     return count;
   }
 
@@ -65,7 +65,7 @@ public abstract class AbstractTree<E> implements Tree<E> {
   @Override
   public int size() {
     int count=0;
-    for (Position p : positions()) count++;
+    for (Position<E> p : positions()) count++;
     return count;
   }
 
@@ -91,6 +91,7 @@ public abstract class AbstractTree<E> implements Tree<E> {
    *
    * Note: This implementation works, but runs in O(n^2) worst-case time.
    */
+  @SuppressWarnings("unused")
   private int heightBad() {             // works, but quadratic worst-case time
 	  int h = 0;
 	  for (Position<E> p : positions())
